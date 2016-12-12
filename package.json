@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://jbreckel.github.io/free-code-camp-recipe-box",
   "devDependencies": {
+    "eslint-config-signavio": "^1.4.1",
     "gh-pages": "^0.12.0",
     "react-scripts": "0.8.4"
   },
