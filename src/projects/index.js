@@ -1,5 +1,6 @@
 import TributePage from './tribute-page'
 import MarkdownPreviewer from './markdown-previewer'
+import CamperLeaderboard from './camper-leaderboard'
 
 export default [
   {
@@ -11,5 +12,10 @@ export default [
     name: 'Markdown Previewer',
     Component: MarkdownPreviewer,
     pattern: '/markdown-previewer',
+  },
+  {
+    name: 'Camper Leaderboard',
+    Component: CamperLeaderboard,
+    pattern: '/camper-leaderboard',
   },
 ]
