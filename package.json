@@ -1,16 +1,22 @@
 {
-  "name": "recipe-box",
+  "name": "free-code-camp-projects",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jbreckel.github.io/free-code-camp-recipe-box",
+  "homepage": "https://jbreckel.github.io/free-code-camp-projects",
   "devDependencies": {
+    "eslint": "^3.11.0",
     "eslint-config-signavio": "^1.4.1",
+    "eslint-plugin-import": "^2.1.0",
     "gh-pages": "^0.12.0",
-    "react-scripts": "0.8.4"
+    "react-scripts": "0.8.4",
+    "react-test-renderer": "^15.4.1"
   },
   "dependencies": {
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.1",
+    "react-router": "next",
+    "recompose": "^0.21.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,5 +25,8 @@
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
+  },
+  "jest": {
+    "verbose": true
   }
 }

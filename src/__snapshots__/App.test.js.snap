@@ -1,0 +1,24 @@
+exports[`test empty app renders correctly 1`] = `
+<div
+  className="container-fluid">
+  <nav
+    className="navbar navbar-default navbar-fixed-top"
+    style={
+      Object {
+        "backgroundColor": "green",
+        "backgroundImage": "none",
+      }
+    }>
+    <div
+      className="container-fluid">
+      <div
+        className="navbar-header">
+        <span
+          className="navbar-brand" />
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container-fluid" />
+</div>
+`;

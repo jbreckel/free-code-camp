@@ -1,21 +1,107 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { PropTypes } from 'react'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+import {
+  BrowserRouter as Router,
+  Match,
+  Link,
+} from 'react-router'
+
+import {
+  Grid,
+  Navbar,
+} from 'react-bootstrap'
+
+import { compose, mapProps } from 'recompose'
+
+import Portfolio, {
+  AboutSection,
+  ContactSection,
+  ProjectsSection,
+} from './portfolio'
+
+import projects from './projects'
+
+
+const {
+  Header,
+  Brand,
+} = Navbar
+
+export const App = ({ sections = [] }) => (
+  <Router>
+    <Grid fluid>
+      <Navbar
+        fluid
+        fixedTop
+        style={{
+          backgroundColor: 'green',
+          backgroundImage: 'none',
+        }}
+      >
+        <Header>
+          <Brand>
+            {
+              sections.map(({ href, title }, index) => (
+                <span key={href} style={{ color: 'white' }} >
+                  { index !== 0 && ' | ' }
+                  <a href={`#${href}`} style={{ color: 'white' }} >
+                    { title }
+                  </a>
+                </span>
+              ))
+            }
+          </Brand>
+        </Header>
+      </Navbar>
+      <Match
+        exactly pattern="/"
+        render={ (props) => ( <Portfolio {...props} sections={ sections } /> ) }
+      />
+      {
+        projects.map((route, i) => (
+          <Match
+            key={`${route.pattern}-${i}`}
+            {...route}
+            render={(props) => (
+              <div style={{ marginTop: 60 }}>
+                <div style={{ marginBottom: 15, marginTop: 10 }}>
+                  <Link to="/">Home</Link>
+                </div>
+                <route.Component {...props} />
+              </div>
+            )}
+          />
+        ))
+      }
+    </Grid>
+  </Router>
+)
+
+App.propTypes = {
+  sections: PropTypes.arrayOf(PropTypes.shape({})),
 }
 
-export default App;
+export default compose(
+  mapProps(({ ...props }) => ({
+    ...props,
+    projects,
+    sections: [
+      {
+        Component: AboutSection,
+        href: 'about',
+        title: 'About',
+      },
+      {
+        Component: ProjectsSection,
+        href: 'projects',
+        title: 'Projects',
+        projects,
+      },
+      {
+        Component: ContactSection,
+        href: 'contact',
+        title: 'Contact',
+      },
+    ],
+  })),
+)(App)
