@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router'
 
-import Section from './Section'
+import { Section } from '../components'
 
 const ContactSection = () => (
   <Section id="contact" title="Contact">

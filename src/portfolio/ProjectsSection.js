@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 
 import ReactRender from 'fast-react-render'
 
-import Section from './Section'
+import { Section } from '../components'
 
 const ProjectsSection = ({ projects }) => (
   <Section id="projects" title="Projects">

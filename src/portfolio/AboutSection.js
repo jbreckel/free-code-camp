@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Section from './Section'
+import { Section } from '../components'
 
 const AboutSection = () => (
   <Section id="about" title="About">
