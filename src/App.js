@@ -21,13 +21,12 @@ import Portfolio, {
 
 import projects from './projects'
 
-
 const {
   Header,
   Brand,
 } = Navbar
 
-export const App = ({ sections = [] }) => (
+const App = ({ sections }) => (
   <Router>
     <Grid fluid>
       <Navbar

@@ -2133,12 +2133,6 @@ fast-levenshtein@~2.0.4:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.5.tgz#bd33145744519ab1c36c3ee9f31f08e9079b67f2"
 
-fast-react-render@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/fast-react-render/-/fast-react-render-1.2.2.tgz#7d744baa2f8de2bc31fc55e5b0f7bc2619a9d304"
-  dependencies:
-    uuid "2.0.2"
-
 fastparse@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
@@ -5293,7 +5287,7 @@ utils-merge@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
 
-uuid@2.0.2, uuid@^2.0.2:
+uuid@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.2.tgz#48bd5698f0677e3c7901a1c46ef15b1643794726"
 

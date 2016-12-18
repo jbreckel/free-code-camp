@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
+import ReactDOMServer from 'react-dom/server'
+
 import { Link } from 'react-router'
 import { Row, Col } from 'react-bootstrap'
-
-import ReactRender from 'fast-react-render'
 
 import { Section } from '../components'
 
@@ -40,7 +40,7 @@ const ProjectsSection = ({ projects }) => (
                     marginTop: 5,
                   }}
                   dangerouslySetInnerHTML={{
-                    __html: ReactRender.elementToString(<Component disabled />),
+                    __html: ReactDOMServer.renderToStaticMarkup(<Component disabled />),
                   }}
                 />
               </Link>
@@ -53,7 +53,6 @@ const ProjectsSection = ({ projects }) => (
 )
 
 ProjectsSection.propTypes = {
-  title: PropTypes.string,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       pattern: PropTypes.string.isRequired,

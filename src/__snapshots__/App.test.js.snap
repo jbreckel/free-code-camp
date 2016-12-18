@@ -14,11 +14,383 @@ exports[`test empty app renders correctly 1`] = `
       <div
         className="navbar-header">
         <span
-          className="navbar-brand" />
+          className="navbar-brand">
+          <span
+            style={
+              Object {
+                "color": "white",
+              }
+            }>
+            <a
+              href="#about"
+              style={
+                Object {
+                  "color": "white",
+                }
+              }>
+              About
+            </a>
+          </span>
+          <span
+            style={
+              Object {
+                "color": "white",
+              }
+            }>
+             | 
+            <a
+              href="#projects"
+              style={
+                Object {
+                  "color": "white",
+                }
+              }>
+              Projects
+            </a>
+          </span>
+          <span
+            style={
+              Object {
+                "color": "white",
+              }
+            }>
+             | 
+            <a
+              href="#contact"
+              style={
+                Object {
+                  "color": "white",
+                }
+              }>
+              Contact
+            </a>
+          </span>
+        </span>
       </div>
     </div>
   </nav>
   <div
-    className="container-fluid" />
+    className="container-fluid">
+    <div
+      className="row"
+      id="about"
+      style={
+        Object {
+          "paddingTop": 50,
+        }
+      }>
+      <div
+        className="text-center page-header">
+        <h1>
+          About
+           
+          <br />
+          <small>
+            <i
+              className="fa fa-code" />
+          </small>
+        </h1>
+      </div>
+      <div
+        className="text-center">
+        Hey there,
+        <br />
+        My name is Julius Breckel and I am currently working as a JavaScript developer.
+      </div>
+    </div>
+    <div
+      className="row"
+      id="projects"
+      style={
+        Object {
+          "paddingTop": 50,
+        }
+      }>
+      <div
+        className="text-center page-header">
+        <h1>
+          Projects
+           
+          <br />
+          <small>
+            <i
+              className="fa fa-code" />
+          </small>
+        </h1>
+      </div>
+      <div
+        className="text-center">
+        <div
+          className="row"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }>
+          <div
+            className="col-md-3"
+            style={
+              Object {
+                "padding": 5,
+              }
+            }>
+            <div
+              style={
+                Object {
+                  "border": "solid #ccc",
+                  "borderWidth": 2,
+                  "height": 200,
+                  "padding": 5,
+                }
+              }>
+              <a
+                className=""
+                href="/tribute-page"
+                onClick={[Function]}
+                style={Object {}}>
+                “
+                Tribute Page
+                ”
+                <br />
+                <div
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<div class=\"container\"><div class=\"jumbotron\"><div class=\"row\"><div class=\"col-md-12\"><div class=\"text-center page-header\"><h1>Dr. Norman Borlaug<br/><small><em>The man who saved a billion lives</em></small></h1></div><div class=\"thumbnail\"><img src=\"https://c2.staticflickr.com/4/3689/10613180113_fdf7bcd316_b.jpg\" class=\"img-responsive\"/><div class=\"caption text-center\">Dr. Norman Borlaug, second from left, trains biologists in Mexico on how to increase wheat yields - part of his life-long war on hunger.</div></div><div class=\"col-md-10 col-md-offset-1\"><h3>Here&#x27;s a time line of Dr. Borlaug&#x27;s life:</h3><ul><li><strong>1914</strong> - Born in Cresco, Iowa</li><li><strong>1933</strong> - Leaves his family&#x27;s farm to attend the University of Minnesota, thanks to a Depression era program known as the &quot;National Youth Administration&quot;</li><li><strong>1935</strong> - Has to stop school and save up more money. Works in the Civilian Conservation Corps, helping starving Americans. &quot;I saw how food changed them&quot;, he said. &quot;All of this left scars on me.&quot;</li><li><strong>1937</strong> - Finishes university and takes a job in the US Forestry Service</li><li><strong>1938</strong> - Marries wife of 69 years Margret Gibson. Gets laid off due to budget cuts. Inspired by Elvin Charles Stakman, he returns to school study under Stakman, who teaches him about breeding pest-resistent plants.</li><li><strong>1941</strong> - Tries to enroll in the military after the Pearl Harbor attack, but is rejected. Instead, the military asked his lab to work on waterproof glue, DDT to control malaria, disenfectants, and other applied science.</li><li><strong>1942</strong> - Receives a Ph.D. in Genetics and Plant Pathology</li><li><strong>1944</strong> - Rejects a 100% salary increase from Dupont, leaves behind his pregnant wife, and flies to Mexico to head a new plant pathology program. Over the next 16 years, his team breeds 6,000 different strains of disease resistent wheat - including different varieties for each major climate on Earth.</li><li><strong>1945</strong> - Discovers a way to grown wheat twice each season, doubling wheat yields</li><li><strong>1953</strong> - crosses a short, sturdy dwarf breed of wheat with a high-yeidling American breed, creating a strain that responds well to fertalizer. It goes on to provide 95% of Mexico&#x27;s wheat.</li><li><strong>1962</strong> - Visits Delhi and brings his high-yielding strains of wheat to the Indian subcontinent in time to help mitigate mass starvation due to a rapidly expanding population</li><li><strong>1970</strong> - receives the Nobel Peace Prize</li><li><strong>1983</strong> - helps seven African countries dramatically increase their maize and sorghum yields</li><li><strong>1984</strong> - becomes a distinguished professor at Texas A&amp;M University</li><li><strong>2005</strong> - states &quot;we will have to double the world food supply by 2050.&quot; Argues that genetically modified crops are the only way we can meet the demand, as we run out of arable land. Says that GM crops are not inherently dangerous because &quot;we&#x27;ve been genetically modifying plants and animals for a long time. Long before we called it science, people were selecting the best breeds.&quot;</li><li><strong>2009</strong> - dies at the age of 95.</li></ul><blockquote><p>&quot;Borlaug&#x27;s life and achievement are testimony to the
+                                far-reaching contribution that one man&#x27;s towering intellect,
+                                persistence and scientific vision can make to human peace and
+                                progress.&quot;</p><cite>— Indian Prime Minister Manmohan Singh</cite></blockquote><h3><div>If you have time, you should read more about this incredible human being on his <a href=\"https://en.wikipedia.org/wiki/Norman_Borlaug\" target=\"_blank\" rel=\"noopener noreferrer\">Wikipedia entry</a>.</div></h3></div></div></div></div></div>",
+                    }
+                  }
+                  style={
+                    Object {
+                      "color": "black",
+                      "height": "320%",
+                      "marginTop": 5,
+                      "overflow": "hidden",
+                      "transform": "scale(0.25)",
+                      "transformOrigin": "0 0",
+                      "width": "400%",
+                    }
+                  } />
+              </a>
+            </div>
+          </div>
+          <div
+            className="col-md-3"
+            style={
+              Object {
+                "padding": 5,
+              }
+            }>
+            <div
+              style={
+                Object {
+                  "border": "solid #ccc",
+                  "borderWidth": 2,
+                  "height": 200,
+                  "padding": 5,
+                }
+              }>
+              <a
+                className=""
+                href="/markdown-previewer"
+                onClick={[Function]}
+                style={Object {}}>
+                “
+                Markdown Previewer
+                ”
+                <br />
+                <div
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<div class=\"container-fluid\"><div style=\"height:100%;\" class=\"row\"><div class=\"col-md-6\"><textarea disabled=\"\" rows=\"22\" style=\"overflow:hidden;width:100%;height:100%;resize:vertical;\">Heading
+                    =======
+                    
+                    Sub-heading
+                    -----------
+                    
+                    ### Another deeper heading
+                    
+                    Paragraphs are separated
+                    by a blank line.
+                    
+                    Leave 2 spaces at the end of a line to do a
+                    line break
+                    
+                    Text attributes *italic*, **bold**,
+                    \`monospace\`, ~~strikethrough~~ .
+                    
+                    \`\`\`
+                    console.log(&#x27;Hello&#x27;);
+                    \`\`\`
+                    
+                    Shopping list:
+                    
+                      * apples
+                      * oranges
+                      * pears
+                    
+                    Numbered list:
+                    
+                      1. apples
+                      2. oranges
+                      3. pears
+                    
+                    The rain---not the reign---in
+                    Spain.
+                    
+                     *[Herman Fassett](https://freecodecamp.com/hermanfassett)*
+                    </textarea></div><div class=\"col-md-6\"><span><h1 id=\"heading\">Heading</h1>
+                    <h2 id=\"sub-heading\">Sub-heading</h2>
+                    <h3 id=\"another-deeper-heading\">Another deeper heading</h3>
+                    <p>Paragraphs are separated
+                    by a blank line.</p>
+                    <p>Leave 2 spaces at the end of a line to do a
+                    line break</p>
+                    <p>Text attributes <em>italic</em>, <strong>bold</strong>,
+                    <code>monospace</code>, <del>strikethrough</del> .</p>
+                    <pre><code>console.log(&#39;Hello&#39;);
+                    </code></pre><p>Shopping list:</p>
+                    <ul>
+                    <li>apples</li>
+                    <li>oranges</li>
+                    <li>pears</li>
+                    </ul>
+                    <p>Numbered list:</p>
+                    <ol>
+                    <li>apples</li>
+                    <li>oranges</li>
+                    <li>pears</li>
+                    </ol>
+                    <p>The rain---not the reign---in
+                    Spain.</p>
+                    <p> <em><a href=\"https://freecodecamp.com/hermanfassett\">Herman Fassett</a></em></p>
+                    </span></div></div></div>",
+                    }
+                  }
+                  style={
+                    Object {
+                      "color": "black",
+                      "height": "320%",
+                      "marginTop": 5,
+                      "overflow": "hidden",
+                      "transform": "scale(0.25)",
+                      "transformOrigin": "0 0",
+                      "width": "400%",
+                    }
+                  } />
+              </a>
+            </div>
+          </div>
+          <div
+            className="col-md-3"
+            style={
+              Object {
+                "padding": 5,
+              }
+            }>
+            <div
+              style={
+                Object {
+                  "border": "solid #ccc",
+                  "borderWidth": 2,
+                  "height": 200,
+                  "padding": 5,
+                }
+              }>
+              <a
+                className=""
+                href="/camper-leaderboard"
+                onClick={[Function]}
+                style={Object {}}>
+                “
+                Camper Leaderboard
+                ”
+                <br />
+                <div
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<div class=\"wrapper\"><div style=\"height:100%;\" class=\"container container-fluid\"><div class=\"header-row row\"><div class=\"col-md-1\">#</div><div class=\"col-md-5\">User</div><div class=\"col-md-3\">Alltime</div><div class=\"col-md-3\">Recent<button> V </button></div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">1</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/4639625?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/sjames1958gm\">sjames1958gm</a></div></div><div class=\"col-md-3\">4531</div><div class=\"col-md-3\">547</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">2</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/2951935?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/Takumar\">Takumar</a></div></div><div class=\"col-md-3\">3138</div><div class=\"col-md-3\">131</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">3</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/1029200?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/abhisekp\">abhisekp</a></div></div><div class=\"col-md-3\">2996</div><div class=\"col-md-3\">121</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">4</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/5952026?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/Blauelf\">Blauelf</a></div></div><div class=\"col-md-3\">2879</div><div class=\"col-md-3\">372</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">5</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/9335367?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/Masd925\">Masd925</a></div></div><div class=\"col-md-3\">2804</div><div class=\"col-md-3\">229</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">6</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/13561988?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/camperbot\">camperbot</a></div></div><div class=\"col-md-3\">2693</div><div class=\"col-md-3\">113</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">7</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/553494?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/SaintPeter\">SaintPeter</a></div></div><div class=\"col-md-3\">2515</div><div class=\"col-md-3\">3</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">8</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/11003055?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/anthonygallina1\">anthonygallina1</a></div></div><div class=\"col-md-3\">2486</div><div class=\"col-md-3\">291</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">9</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/9571508?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/Chrono79\">Chrono79</a></div></div><div class=\"col-md-3\">2467</div><div class=\"col-md-3\">273</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">10</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/1588399?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/revisualize\">revisualize</a></div></div><div class=\"col-md-3\">2287</div><div class=\"col-md-3\">289</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">11</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/6234475?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/ArielLeslie\">ArielLeslie</a></div></div><div class=\"col-md-3\">2082</div><div class=\"col-md-3\">143</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">12</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/15965601?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/BKinahan\">BKinahan</a></div></div><div class=\"col-md-3\">2069</div><div class=\"col-md-3\">1</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">13</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/7305974?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/moigithub\">moigithub</a></div></div><div class=\"col-md-3\">1945</div><div class=\"col-md-3\">113</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">14</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/15148847?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/ndburrus\">ndburrus</a></div></div><div class=\"col-md-3\">1906</div><div class=\"col-md-3\">0</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">15</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/1930584?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/khaduch\">khaduch</a></div></div><div class=\"col-md-3\">1781</div><div class=\"col-md-3\">172</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">16</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/4724513?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/0x0936\">0x0936</a></div></div><div class=\"col-md-3\">1760</div><div class=\"col-md-3\">216</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">17</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/7389754?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/EllieAdam\">EllieAdam</a></div></div><div class=\"col-md-3\">1684</div><div class=\"col-md-3\">0</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">18</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/72777?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/diomed\">diomed</a></div></div><div class=\"col-md-3\">1661</div><div class=\"col-md-3\">463</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">19</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/4247923?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/jbmartinez\">jbmartinez</a></div></div><div class=\"col-md-3\">1607</div><div class=\"col-md-3\">2</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">20</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/16578279?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/wearenotgroot\">wearenotgroot</a></div></div><div class=\"col-md-3\">1515</div><div class=\"col-md-3\">0</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">21</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/4771847?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/h4r1m4u\">h4r1m4u</a></div></div><div class=\"col-md-3\">1470</div><div class=\"col-md-3\">0</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">22</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/449874?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/storbeck\">storbeck</a></div></div><div class=\"col-md-3\">1462</div><div class=\"col-md-3\">3</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">23</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/9792899?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/maz-net-au\">maz-net-au</a></div></div><div class=\"col-md-3\">1439</div><div class=\"col-md-3\">23</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">24</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/13058496?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/mutantspore\">mutantspore</a></div></div><div class=\"col-md-3\">1363</div><div class=\"col-md-3\">0</div></div><div style=\"margin-bottom:10px;padding:4px;\" class=\"row\"><div class=\"col-md-1\">25</div><div class=\"col-md-5\"><div><img src=\"https://avatars.githubusercontent.com/u/12920275?v=3\" style=\"max-height:60px;max-width:60px;\" class=\"img-thumbnail\"/>  <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.freecodecamp.com/HermanFassett\">HermanFassett</a></div></div><div class=\"col-md-3\">1304</div><div class=\"col-md-3\">5</div></div></div></div>",
+                    }
+                  }
+                  style={
+                    Object {
+                      "color": "black",
+                      "height": "320%",
+                      "marginTop": 5,
+                      "overflow": "hidden",
+                      "transform": "scale(0.25)",
+                      "transformOrigin": "0 0",
+                      "width": "400%",
+                    }
+                  } />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+      id="contact"
+      style={
+        Object {
+          "paddingTop": 50,
+        }
+      }>
+      <div
+        className="text-center page-header">
+        <h1>
+          Contact
+           
+          <br />
+          <small>
+            <i
+              className="fa fa-code" />
+          </small>
+        </h1>
+      </div>
+      <div
+        className="text-center">
+        If you want to contact me, please feel free to send me a carrier pigeon.
+        <br />
+        If you don\'t have your pigeon at hand, you can find me at
+         
+        <a
+          className=""
+          href="https://www.linkedin.com/in/jbreckel"
+          onClick={[Function]}
+          rel="noopener noreferrer"
+          style={Object {}}
+          target="_blank">
+          <i
+            className="fa fa-linkedin-square fa-2x"
+            style={
+              Object {
+                "color": "#444",
+              }
+            } />
+        </a>
+         and
+         
+        <a
+          className=""
+          href="https://github.com/jbreckel"
+          onClick={[Function]}
+          rel="noopener noreferrer"
+          style={Object {}}
+          target="_blank">
+          <i
+            className="fa fa-github-square fa-2x"
+            style={
+              Object {
+                "color": "#444",
+              }
+            } />
+        </a>
+        .
+      </div>
+    </div>
+  </div>
 </div>
 `;
