@@ -33,7 +33,7 @@ const App = ({ sections }) => (
         fluid
         fixedTop
         style={{
-          backgroundColor: 'green',
+          backgroundColor: '#00695C',
           backgroundImage: 'none',
         }}
       >
