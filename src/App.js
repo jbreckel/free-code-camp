@@ -28,7 +28,7 @@ const {
 
 const App = ({ sections }) => (
   <Router>
-    <Grid fluid>
+    <Grid fluid style={{ height: '100%' }}>
       <Navbar
         fluid
         fixedTop
@@ -62,7 +62,7 @@ const App = ({ sections }) => (
             key={`${route.pattern}-${i}`}
             {...route}
             render={(props) => (
-              <div style={{ marginTop: 60 }}>
+              <div style={{ marginTop: 60, height: '100%' }}>
                 <div style={{ marginBottom: 15, marginTop: 10 }}>
                   <Link to="/">Home</Link>
                 </div>
