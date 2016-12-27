@@ -11,7 +11,7 @@ import {
   Navbar,
 } from 'react-bootstrap'
 
-import { compose, mapProps } from 'recompose'
+import { compose, mapProps, withContext } from 'recompose'
 
 import Portfolio, {
   AboutSection,
@@ -26,14 +26,14 @@ const {
   Brand,
 } = Navbar
 
-const App = ({ sections }) => (
+const App = ({ sections, appColor }) => (
   <Router basename="/free-code-camp-projects">
     <Grid fluid style={{ height: '100%' }}>
       <Navbar
         fluid
         fixedTop
         style={{
-          backgroundColor: '#00695C',
+          backgroundColor: appColor,
           backgroundImage: 'none',
         }}
       >
@@ -78,9 +78,18 @@ const App = ({ sections }) => (
 
 App.propTypes = {
   sections: PropTypes.arrayOf(PropTypes.shape({})),
+  appColor: PropTypes.string,
 }
 
 export default compose(
+  mapProps((props) => ({
+    ...props,
+    appColor: '#00695C',
+  })),
+  withContext(
+    { appColor: PropTypes.string },
+    ({ appColor }) => ({ appColor })
+  ),
   mapProps(({ ...props }) => ({
     ...props,
     projects,
