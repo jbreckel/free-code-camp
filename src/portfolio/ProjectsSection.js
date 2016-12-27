@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
 import ReactDOMServer from 'react-dom/server'
+import { compose, getContext } from 'recompose'
 
 import { Link } from 'react-router'
 import { Row, Col } from 'react-bootstrap'
 
 import { Section } from '../components'
 
-const ProjectsSection = ({ projects }) => (
+const ProjectsSection = ({ projects, appColor }) => (
   <Section id="free-code-camp-projects" title="Free Code Camp Projects">
     <Row style={{ width: '100%' }}>
       {
@@ -40,7 +41,9 @@ const ProjectsSection = ({ projects }) => (
                     marginTop: 5,
                   }}
                   dangerouslySetInnerHTML={{
-                    __html: ReactDOMServer.renderToStaticMarkup(<Component disabled />),
+                    __html: ReactDOMServer.renderToStaticMarkup(
+                      <Component disabled appColor={ appColor } />
+                    ),
                   }}
                 />
               </Link>
@@ -53,6 +56,7 @@ const ProjectsSection = ({ projects }) => (
 )
 
 ProjectsSection.propTypes = {
+  appColor: PropTypes.string,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       pattern: PropTypes.string.isRequired,
@@ -62,4 +66,8 @@ ProjectsSection.propTypes = {
   ),
 }
 
-export default ProjectsSection
+export default compose(
+  getContext({
+    appColor: PropTypes.string,
+  })
+)(ProjectsSection)
