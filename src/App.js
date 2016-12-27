@@ -27,7 +27,7 @@ const {
 } = Navbar
 
 const App = ({ sections }) => (
-  <Router>
+  <Router basename="/free-code-camp-projects">
     <Grid fluid style={{ height: '100%' }}>
       <Navbar
         fluid
