@@ -100,15 +100,15 @@ export default compose(
         title: 'About',
       },
       {
+        Component: ContactSection,
+        href: 'contact',
+        title: 'Contact',
+      },
+      {
         Component: ProjectsSection,
         href: 'free-code-camp-projects',
         title: 'Free Code Camp Projects',
         projects,
-      },
-      {
-        Component: ContactSection,
-        href: 'contact',
-        title: 'Contact',
       },
     ],
   })),
