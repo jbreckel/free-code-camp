@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 import { Grid } from 'react-bootstrap'
 
@@ -7,16 +7,20 @@ import { compose, mapProps, withState, lifecycle } from 'recompose'
 import Blockquote from './Blockquote'
 
 const colors = [
-  '#E91E63',
-  '#F44336',
-  '#FF5722',
-  '#9C27B0',
-  '#673AB7',
-  '#3F51B5',
-  '#2196F3',
-  '#00BCD4',
-  '#8BC34A',
-  '#FF9800',
+  '#479e37',
+  '#37479e',
+  '#9e3747',
+  '#379e8e',
+  '#232e65',
+  '#5c6dc6',
+  '#c6b55c',
+  '#5ca2c6',
+  '#805cc6',
+  '#a2c65c',
+  '#c6805c',
+  '#3f8b31',
+  '#c65c6d',
+  '#5cc6b5',
 ]
 
 const RandomQuoteMachine = ({ quote, author, updateQuote, color }) => (
@@ -74,6 +78,13 @@ const RandomQuoteMachine = ({ quote, author, updateQuote, color }) => (
   </Grid>
 )
 
+RandomQuoteMachine.propTypes = {
+  quote: PropTypes.string,
+  author: PropTypes.string,
+  updateQuote: PropTypes.func,
+  color: PropTypes.string,
+}
+
 export default compose(
   mapProps(({ ...props }) => ({
     ...props,
@@ -112,4 +123,11 @@ export default compose(
       this.props.updateQuote()
     },
   }),
+  mapProps(({ disabled, quote, author, color, appColor, ...rest }) => ({
+    ...rest,
+    disabled,
+    quote: disabled ? 'I feel the need - the need for speed!' : quote,
+    author: disabled ? 'Top Gun' : author,
+    color: disabled ? appColor : color,
+  })),
 )(RandomQuoteMachine)
