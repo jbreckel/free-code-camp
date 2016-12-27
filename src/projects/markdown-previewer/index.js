@@ -71,7 +71,7 @@ Numbered list:
 The rain---not the reign---in
 Spain.
 
- *[Herman Fassett](https://freecodecamp.com/hermanfassett)*
+ *[Julius Breckel](https://freecodecamp.com/jbreckel)*
 `
 
 const MarkdownPreviewer = compose(
