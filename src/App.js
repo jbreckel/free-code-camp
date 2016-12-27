@@ -92,8 +92,8 @@ export default compose(
       },
       {
         Component: ProjectsSection,
-        href: 'projects',
-        title: 'Projects',
+        href: 'free-code-camp-projects',
+        title: 'Free Code Camp Projects',
         projects,
       },
       {

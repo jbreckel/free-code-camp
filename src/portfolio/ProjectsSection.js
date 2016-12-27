@@ -7,7 +7,7 @@ import { Row, Col } from 'react-bootstrap'
 import { Section } from '../components'
 
 const ProjectsSection = ({ projects }) => (
-  <Section id="projects" title="Projects">
+  <Section id="free-code-camp-projects" title="Free Code Camp Projects">
     <Row style={{ width: '100%' }}>
       {
         projects.map(({ pattern, name, Component }, index) => (
