@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap'
 
 import { compose, mapProps, withState, lifecycle } from 'recompose'
 
-import Blockquote from './Blockquote'
+import { Blockquote } from '../../components'
 
 const colors = [
   '#479e37',
