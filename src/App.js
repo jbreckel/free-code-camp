@@ -11,7 +11,7 @@ import {
   Navbar,
 } from 'react-bootstrap'
 
-import { compose, mapProps, withContext } from 'recompose'
+import { compose, mapProps, withContext, lifecycle } from 'recompose'
 
 import Portfolio, {
   AboutSection,
@@ -26,6 +26,33 @@ const {
   Brand,
 } = Navbar
 
+const MyHeader = compose(
+  lifecycle({
+    componentWillReceiveProps() {
+      const { hash } = location
+      const el = document.getElementById(hash.replace('#', ''))
+      if ( el ) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
+  }),
+)(({ sections }) => (
+  <Header>
+    <Brand>
+      {
+        sections.map(({ href, title }, index) => (
+          <span key={href} style={{ color: 'white' }} >
+            { index !== 0 && ' | ' }
+            <Link to={`/#${href}`} style={{ color: 'white' }} >
+              { title }
+            </Link>
+          </span>
+        ))
+      }
+    </Brand>
+  </Header>
+))
+
 const App = ({ sections, appColor }) => (
   <Router basename="/free-code-camp-projects">
     <Grid fluid style={{ height: '100%' }}>
@@ -37,20 +64,7 @@ const App = ({ sections, appColor }) => (
           backgroundImage: 'none',
         }}
       >
-        <Header>
-          <Brand>
-            {
-              sections.map(({ href, title }, index) => (
-                <span key={href} style={{ color: 'white' }} >
-                  { index !== 0 && ' | ' }
-                  <a href={`#${href}`} style={{ color: 'white' }} >
-                    { title }
-                  </a>
-                </span>
-              ))
-            }
-          </Brand>
-        </Header>
+        <MyHeader sections={ sections } />
       </Navbar>
       <Match
         exactly pattern="/"
