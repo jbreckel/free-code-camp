@@ -9,7 +9,7 @@ import { Section } from '../components'
 
 const ProjectsSection = ({ projects, appColor }) => (
   <Section id="free-code-camp-projects" title="Free Code Camp Projects">
-    <Row style={{ width: '100%' }}>
+    <Row>
       {
         projects.map(({ pattern, name, Component }, index) => (
           <Col
@@ -32,13 +32,14 @@ const ProjectsSection = ({ projects, appColor }) => (
                 &ldquo;{ name }&rdquo;<br />
                 <div
                   style={{
-                    transform: 'scale(0.25)',
+                    transform: 'scale(0.24)',
                     transformOrigin: '0 0',
-                    height: '320%',
-                    width: '400%',
+                    height: '340%',
+                    width: '420%',
                     overflow: 'hidden',
                     color: 'black',
                     marginTop: 5,
+                    textAlign: 'left',
                   }}
                   dangerouslySetInnerHTML={{
                     __html: ReactDOMServer.renderToStaticMarkup(
