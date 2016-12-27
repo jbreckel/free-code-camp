@@ -4,8 +4,6 @@ import {
   Col,
   Row,
   Grid,
-  PageHeader,
-  Image,
   Jumbotron,
 } from 'react-bootstrap'
 
@@ -14,64 +12,12 @@ import {
   mapProps,
 } from 'recompose'
 
-import { Blockquote } from '../../components'
 
 import data from './data'
 
-const ListRow = ({ year, msg }) => (
-  <li>
-    <strong>{ year }</strong> &mdash; { msg }
-  </li>
-)
-
-const ListComponent = ({ listData }) => (
-  <ul>
-    {
-      listData.map((item) => (
-        <ListRow key={item.year + item.msg} {...item} />
-      ))
-    }
-  </ul>
-)
-
-const ImageComponent = ({ imgUrl, caption }) => (
-  <div className="thumbnail">
-    <Image src={ imgUrl } responsive />
-    <div className="caption text-center">
-      { caption }
-    </div>
-  </div>
-)
-
-const SiteHeaderComponent = ({ title, subtitle }) => (
-  <PageHeader className="text-center">
-    { title }
-    <br />
-    <small><em>{ subtitle }</em></small>
-  </PageHeader>
-)
-
-const BodyComponent = ({
-  title,
-  listData,
-  quote,
-  quoteAuthor,
-  moreInfo,
-}) => (
-  <Col md={10} mdOffset={1}>
-    <h3>{ title }</h3>
-    <ListComponent listData={listData} />
-    <Blockquote
-      style={{
-        hyphens: 'auto',
-      }}
-      author={ quoteAuthor }
-    >
-      { quote }
-    </Blockquote>
-    <h3>{ moreInfo }</h3>
-  </Col>
-)
+import BodyComponent from './Body'
+import SiteHeaderComponent from './Header'
+import ImageComponent from './Image'
 
 const TributePage = ({
   siteTitle, subtitle, imgUrl, imgCaption, bodyTitle, bulletPoints, quote, quoteAuthor, moreInfo,
