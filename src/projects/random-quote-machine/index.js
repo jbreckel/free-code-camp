@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap'
 
 import { compose, mapProps, withState, lifecycle } from 'recompose'
 
-import { Blockquote } from '../../components'
+import { Disclaimer, Blockquote } from '../../components'
 
 const colors = [
   '#479e37',
@@ -75,6 +75,12 @@ const RandomQuoteMachine = ({ quote, author, updateQuote, color }) => (
         </button>
       </div>
     </div>
+    <Disclaimer
+      style={{
+        color: 'white',
+      }}
+      project="random-quote-machine"
+    />
   </Grid>
 )
 

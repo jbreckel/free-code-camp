@@ -11,6 +11,8 @@ import {
   withState,
 } from 'recompose'
 
+import { Disclaimer } from '../../components'
+
 import demo from './demo.json'
 
 import TableRow from './TableRow'
@@ -50,6 +52,9 @@ const CamperLeaderboard = ({ data, mode, setMode }) => (
         ))
       }
     </Grid>
+    <Disclaimer
+      project="camper-leaderboard"
+    />
   </div>
 )
 

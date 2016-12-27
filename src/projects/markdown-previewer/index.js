@@ -9,6 +9,8 @@ import { compose, mapProps, withState } from 'recompose'
 
 import marked from 'marked'
 
+import { Disclaimer } from '../../components'
+
 const Root = ({ rawText, markdown, setText, disabled }) => (
   <Grid
     fluid
@@ -32,6 +34,9 @@ const Root = ({ rawText, markdown, setText, disabled }) => (
         <span dangerouslySetInnerHTML={ markdown } />
       </Col>
     </Row>
+    <Disclaimer
+      project="markdown-previewer"
+    />
   </Grid>
 )
 

@@ -12,6 +12,7 @@ import {
   mapProps,
 } from 'recompose'
 
+import { Disclaimer } from '../../components'
 
 import data from './data'
 
@@ -43,6 +44,9 @@ const TributePage = ({
           />
         </Col>
       </Row>
+      <Disclaimer
+        project="tribute-page"
+      />
     </Jumbotron>
   </Grid>
 )
