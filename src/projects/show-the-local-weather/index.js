@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { PageHeader } from 'react-bootstrap'
 import { compose, withState, lifecycle } from 'recompose'
 
@@ -68,3 +68,23 @@ export default compose(
     },
   }),
 )(ShowMeTheWeather)
+
+ShowMeTheWeather.propTypes = {
+  weather: {
+    icon: PropTypes.string,
+    description: PropTypes.string,
+    wind: {
+      speed: PropTypes.number,
+      deg: PropTypes.number,
+      desc: PropTypes.string,
+    },
+    location: {
+      city: PropTypes.string,
+      country: PropTypes.string,
+    },
+    temp: {
+      C: PropTypes.number,
+      F: PropTypes.number,
+    },
+  },
+}

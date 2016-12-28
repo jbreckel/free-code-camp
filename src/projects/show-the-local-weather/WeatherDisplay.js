@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 import { compose, mapProps, withState } from 'recompose'
 
@@ -71,3 +71,27 @@ export default compose(
     },
   })),
 )(WeatherDisplay)
+
+WeatherDisplay.propTypes = {
+  description: PropTypes.string,
+  wind: {
+    speed: PropTypes.number,
+    deg: PropTypes.number,
+    desc: PropTypes.string,
+  },
+  location: {
+    city: PropTypes.string,
+    country: PropTypes.string,
+  },
+  temp: {
+    C: PropTypes.number,
+    F: PropTypes.number,
+  },
+  iconCls: PropTypes.string,
+  tempFormat: PropTypes.string,
+  tempUnits: {
+    C: PropTypes.string,
+    F: PropTypes.string,
+  },
+  setTempFormat: PropTypes.func,
+}
