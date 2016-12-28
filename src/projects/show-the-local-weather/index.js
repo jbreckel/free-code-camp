@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react'
 import { PageHeader } from 'react-bootstrap'
 import { compose, withState, lifecycle } from 'recompose'
 
+import { Disclaimer } from '../../components'
+
 import './css/weather-icons-wind.min.css'
 import './css/weather-icons.min.css'
 
@@ -26,6 +28,9 @@ const ShowMeTheWeather = ({ weather }) => (
         <WeatherDisplay {...{ weather }} />
       )
     }
+    <Disclaimer
+      project="show-the-local-weather"
+    />
   </div>
 )
 
