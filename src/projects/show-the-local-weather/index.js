@@ -28,9 +28,26 @@ const ShowMeTheWeather = ({ weather }) => (
         <WeatherDisplay {...{ weather }} />
       )
     }
-    <Disclaimer
-      project="show-the-local-weather"
-    />
+    <div style={{ margin: 15 }}>
+      <a
+        href="https://www.wunderground.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <p>
+          Weather data provided by:<br />
+          <img
+            src="https://icons.wxug.com/logos/JPG/wundergroundLogo_4c_horz.jpg"
+            alt="Weather Underground"
+            style={{ width: 120 }}
+          />
+        </p>
+      </a>
+      <Disclaimer
+        style={{ margin: 15 }}
+        project="show-the-local-weather"
+      />
+    </div>
   </div>
 )
 
