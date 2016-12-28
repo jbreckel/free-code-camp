@@ -4,14 +4,19 @@ import { compose, mapProps, withState } from 'recompose'
 
 import { DropdownButton, MenuItem } from 'react-bootstrap'
 
+import WindDisplay from './WindDisplay'
+
 const WeatherDisplay = ({
-  weather: { temp, name, sys: { country }, weather: { main, description }, wind },
-  iconCls, windIconCls, windSpeedIconCls,
+  location: { city, country },
+  description,
+  temp,
+  iconCls,
   tempFormat, tempUnits, setTempFormat,
+  wind,
 }) => (
   <div>
-    <h3>{ name }, { country }</h3>
-    <i className={ `${iconCls} fa-3x` } />
+    <h3>{ city }, { country }</h3>
+    <i style={{ margin: 7 }} className={ `${iconCls} fa-3x` } />
     <div
       style={{
         margin: 5,
@@ -32,37 +37,12 @@ const WeatherDisplay = ({
         }
       </DropdownButton>
     </div>
-    <p style={{ fontSize: '140%' }}>
-      { main }
-    </p>
-    <p>
+    <p style={{ fontSize: '120%' }}>
       { description }
     </p>
-    <div>
-      Wind:
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <i style={{ margin: 4 }} className={ `${windIconCls} fa-3x` } />
-        {' '}
-        ({ wind.deg }°)
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <i style={{ margin: 4 }} className={ `${windSpeedIconCls} fa-3x` } />
-        {' '}
-        ({ wind.speed } bft)
-      </div>
-    </div>
+    <WindDisplay
+      wind={ wind }
+    />
   </div>
 )
 
@@ -71,16 +51,13 @@ export default compose(
     ...props,
     tempUnits: {
       C: '°C',
-      K: 'K',
       F: '°F',
     },
   })),
   mapProps(({ weather, ...rest }) => ({
     ...rest,
-    weather,
-    iconCls: `wi wi-owm-${weather.weather.id}`,
-    windIconCls: `wi wi-wind towards-${weather.wind.deg.toFixed(0)}-deg`,
-    windSpeedIconCls: `wi wi-wind wi-wind-beaufort-${weather.wind.speed.toFixed(0)}`,
+    ...weather,
+    iconCls: `wi wi-wu-${weather.icon}`,
   })),
   withState('tempFormat', 'setTempFormat', 'C'),
   mapProps(({ tempFormat, setTempFormat, tempUnits, ...rest }) => ({

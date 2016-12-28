@@ -7,9 +7,9 @@ import './css/weather-icons.min.css'
 
 import WeatherDisplay from './WeatherDisplay'
 
-const ShowMeTheWeather = ({
-  weather,
-}) => (
+import bftCalculator from './bftCalculator'
+
+const ShowMeTheWeather = ({ weather }) => (
   <div
     style={{
       textAlign: 'center',
@@ -29,51 +29,39 @@ const ShowMeTheWeather = ({
   </div>
 )
 
-const calculateTemp = ({ temp, currentFormat = 'K', newFormat }) => {
-  if (currentFormat === 'C') {
-    if (newFormat === 'F') {
-      return ((9 / 5) * temp) + 32
-    } else if (newFormat === 'K') {
-      return temp + 273
-    }
-  }
-  if (currentFormat === 'F') {
-    if (newFormat === 'C') {
-      return (5 / 9) * (temp - 32)
-    } else if (newFormat === 'K') {
-      return ((5 / 9) * (temp - 32)) + 273
-    }
-  }
-  if (currentFormat === 'K') {
-    if (newFormat === 'C') {
-      return temp - 273
-    } else if (newFormat === 'F') {
-      return ((9 / 5) * (temp - 273)) + 32
-    }
-  }
-  return temp
-}
-
 export default compose(
   withState('weather', 'setWeather', {}),
   lifecycle({
-    componentWillMount() {
-      fetch('http://ipinfo.io/json')
+    componentDidMount() {
+      fetch('https://ipinfo.io/json')
         .then((res) => res.json())
         .then(({ loc }) => loc.split(','))
         .then(([lat, lon]) => fetch(
-          `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=20da7b5f28996aa4f8e4d26ccd6f49ba`).then((res) => res.json())
+          `https://api.wunderground.com/api/d8483e016960a875/conditions/q/${lat},${lon}.json`
+        ).then((res) => res.json()).then(({ current_observation: r }) => r)
         )
         .then((weather) => {
+          const {
+            wind_mph, wind_degrees,
+            observation_location: { city, country_iso3166: country },
+            temp_c, temp_f, weather: description,
+            icon,
+          } = weather
+          // wunderground
           this.props.setWeather({
-            ...weather,
-            // we only want to see the first weather
-            weather: weather.weather[0],
-            // precalculate different formats
+            icon,
+            description,
+            wind: {
+              ...bftCalculator(wind_mph),
+              deg: wind_degrees,
+            },
+            location: {
+              city,
+              country,
+            },
             temp: {
-              K: weather.main.temp.toFixed(2),
-              C: calculateTemp({ temp: weather.main.temp, newFormat: 'C' }).toFixed(2),
-              F: calculateTemp({ temp: weather.main.temp, newFormat: 'F' }).toFixed(2),
+              C: temp_c,
+              F: temp_f,
             },
           })
         })
