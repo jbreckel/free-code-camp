@@ -3,6 +3,7 @@ import MarkdownPreviewer from './markdown-previewer'
 import CamperLeaderboard from './camper-leaderboard'
 import RandomQuoteMachine from './random-quote-machine'
 import ShowMeTheWeather from './show-the-local-weather'
+import WikipediaViewer from './build-a-wikipedia-viewer'
 
 export default [
   {
@@ -29,5 +30,10 @@ export default [
     name: 'Show The Local Weather',
     Component: ShowMeTheWeather,
     pattern: '/show-the-local-weather',
+  },
+  {
+    name: 'Wikipedia Viewer',
+    Component: WikipediaViewer,
+    pattern: '/build-a-wikipedia-viewer',
   },
 ]
