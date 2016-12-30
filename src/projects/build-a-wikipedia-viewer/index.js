@@ -43,6 +43,10 @@ const WikipediaViewer = ({ searchForArticles, articles, appColor, loading }) => 
         project="build-a-wikipedia-viewer"
         style={{
           color: 'white',
+          border: '1px solid white',
+          borderRadius: 4,
+          padding: 7,
+          margin: 7,
         }}
       />
     </div>
