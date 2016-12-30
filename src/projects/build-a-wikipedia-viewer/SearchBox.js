@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  FormGroup,
-  FormControl,
-} from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap'
 
 import { compose, mapProps, withState } from 'recompose'
 

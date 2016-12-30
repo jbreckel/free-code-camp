@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { compose, mapProps, withState } from 'recompose'
+import { compose, withState } from 'recompose'
 
 import SearchResult from './SearchResult'
 
@@ -21,11 +21,4 @@ const ResultTable = ({ articles, hover, setHover }) => (
 
 export default compose(
   withState('hover', 'setHover', null),
-  // mapProps(({ hover, setHover, ...rest }) => ({
-  //   ...rest,
-  //   hover,
-  //   toggleHover(newId) {
-  //     setHover(newId)
-  //   },
-  // })),
 )(ResultTable)
