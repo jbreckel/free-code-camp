@@ -4,6 +4,8 @@ import { compose, mapProps, withState, getContext } from 'recompose'
 
 import fetchJsonp from 'fetch-jsonp'
 
+import { Disclaimer } from '../../components'
+
 import RandomPage from './RandomPage'
 import ResultTable from './ResultTable'
 
@@ -37,6 +39,12 @@ const WikipediaViewer = ({ searchForArticles, articles, appColor, loading }) => 
           ? <span style={{ color: 'white' }}>Loading...</span>
           : <ResultTable articles={ articles } />
       }
+      <Disclaimer
+        project="build-a-wikipedia-viewer"
+        style={{
+          color: 'white',
+        }}
+      />
     </div>
   </div>
 )
