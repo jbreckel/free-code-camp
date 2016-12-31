@@ -4,6 +4,7 @@ import CamperLeaderboard from './camper-leaderboard'
 import RandomQuoteMachine from './random-quote-machine'
 import ShowMeTheWeather from './show-the-local-weather'
 import WikipediaViewer from './build-a-wikipedia-viewer'
+import TwitchAPIApp from './use-the-twitchtv-json-api'
 
 export default [
   {
@@ -35,5 +36,10 @@ export default [
     name: 'Wikipedia Viewer',
     Component: WikipediaViewer,
     pattern: '/build-a-wikipedia-viewer',
+  },
+  {
+    name: 'Twitch API example',
+    Component: TwitchAPIApp,
+    pattern: '/use-the-twitchtv-json-api',
   },
 ]
