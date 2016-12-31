@@ -14,7 +14,7 @@ const UserRow = ({
   },
 }) => (
   <a
-    href={`https://www.twitch.tv/${name}`}
+    href={name && `https://www.twitch.tv/${name}`}
     target="_blank"
     rel="noopener noreferrer"
     style={{
@@ -47,7 +47,7 @@ const UserRow = ({
         <h5>{ displayName }</h5>
         <p>
           {
-            stream ? ( stream.channel.status ) : 'Offline'
+            stream ? ( stream.channel.status ) : (!name && 'This user does not exist.') || 'Offline'
           }
         </p>
       </div>

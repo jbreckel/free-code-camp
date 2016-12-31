@@ -20,6 +20,22 @@ const fetchUserWithStream = (login) =>
       },
       stream,
     }))
+    .catch(() => ({
+      user: {
+        id: login,
+        // name: login,
+        display_name: login,
+      },
+      stream: {},
+    }))
   )
+  .catch(() => ({
+    user: {
+      id: login,
+      // name: login,
+      display_name: login,
+    },
+    stream: {},
+  }))
 
 export default fetchUserWithStream

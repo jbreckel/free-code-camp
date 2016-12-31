@@ -9,6 +9,8 @@ import fetchUserWithStream from './fetchUserWithStream'
 import UserRow from './UserRow'
 
 const defaultChannels = [
+  'ecCE121',
+  'comster404',
   'ESL_SC2',
   'OgamingSC2',
   'cretetion',
@@ -81,7 +83,7 @@ const TwitchAPIApp = ({ appColor, channels, filters, setFilter, filter }) => (
           border: '1px solid white',
           borderRadius: 4,
           padding: 7,
-          marginTop: 20,
+          margin: 20,
         }}
       />
     </div>
