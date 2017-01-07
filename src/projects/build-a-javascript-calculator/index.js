@@ -53,7 +53,7 @@ const JavaScriptCalculator = ({
         }}
       >
         <Tile sbstyle={ style } onClick={ clear }>C</Tile>
-        <Screen sbstyle={ style }>{ result || 'Enter a number' }</Screen>
+        <Screen sbstyle={ style }>{ result }</Screen>
 
         <Tile sbstyle={ style } onClick={ () => addToValue('7') }>7</Tile>
         <Tile sbstyle={ style } onClick={ () => addToValue('8') }>8</Tile>
@@ -122,18 +122,31 @@ export default compose(
     appColor: () => null,
   }),
   substyle(defaultStyles),
-  withState('result', 'setResult', ''),
+  withState('result', 'setResult', 0),
   withState('value', 'setValue', 0),
   withState('secondValue', 'setSecondValue', 0),
   withState('operator', 'setOperator', null),
   withHandlers({
     addToValue: ({ setValue, value, result, operator, secondValue, setSecondValue, setResult }) =>
       (digit) => {
-        // missing double 0 starting, multiple dots
         if (operator === null) {
-          setValue(`${value}${digit}`, () => setResult(`${result}${digit}`))
+          if ( digit === '.' && value.indexOf('.') !== -1 ) {
+            setValue(value, () => setResult(result))
+            return
+          }
+          const nVal = value === 0 ? digit : `${value}${digit}`
+          const setVal = nVal.indexOf('00') === 0 ? value : nVal
+          setValue(setVal, () => setResult(setVal))
         } else {
-          setSecondValue(`${secondValue}${digit}`, () => setResult(`${result}${digit}`))
+          if ( digit === '.' && secondValue.indexOf('.') !== -1 ) {
+            setSecondValue(secondValue, () => setResult(result))
+            return
+          }
+          const nVal = secondValue === 0 ? digit : `${secondValue}${digit}`
+          const setVal = nVal.indexOf('00') === 0 ? secondValue : nVal
+          const resSplit = result.split(' ')
+          const setRes = `${resSplit[0]} ${resSplit[1]} ${setVal}`
+          setSecondValue(setVal, () => setResult(setRes))
         }
       },
     triggerCalculation:
