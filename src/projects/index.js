@@ -5,6 +5,7 @@ import RandomQuoteMachine from './random-quote-machine'
 import ShowMeTheWeather from './show-the-local-weather'
 import WikipediaViewer from './build-a-wikipedia-viewer'
 import TwitchAPIApp from './use-the-twitchtv-json-api'
+import JavaScriptCalculator from './build-a-javascript-calculator'
 
 export default [
   {
@@ -41,5 +42,10 @@ export default [
     name: 'Twitch API example',
     Component: TwitchAPIApp,
     pattern: '/use-the-twitchtv-json-api',
+  },
+  {
+    name: 'JavaScript Calculator',
+    Component: JavaScriptCalculator,
+    pattern: '/build-a-javascript-calculator',
   },
 ]

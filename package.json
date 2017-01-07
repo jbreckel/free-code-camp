@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://jbreckel.github.io/free-code-camp-projects",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-watch": "^2.0.5",
     "eslint": "^3.11.0",
     "eslint-config-signavio": "^1.4.1",
     "eslint-plugin-import": "^2.1.0",
@@ -22,7 +25,8 @@
     "react-dom": "^15.4.1",
     "react-router": "next",
     "recompose": "^0.21.0",
-    "smoothscroll-polyfill": "^0.3.4"
+    "smoothscroll-polyfill": "^0.3.4",
+    "substyle": "^4"
   },
   "scripts": {
     "start": "react-scripts start",
