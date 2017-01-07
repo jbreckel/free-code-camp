@@ -4,6 +4,8 @@ import { compose, getContext, withState, withHandlers } from 'recompose'
 
 import substyle from 'substyle'
 
+import { Disclaimer } from '../../components'
+
 import './style.css'
 
 import calculate from './calculate'
@@ -73,6 +75,16 @@ const JavaScriptCalculator = ({
         <Tile sbstyle={ style } onClick={ () => setOperator('*') }>*</Tile>
       </div>
     </div>
+    <Disclaimer
+      project="build-a-javascript-calculator"
+      style={{
+        color: 'white',
+        border: '1px solid white',
+        borderRadius: 4,
+        padding: 7,
+        margin: 7,
+      }}
+    />
   </div>
 )
 
@@ -82,7 +94,8 @@ const defaultStyles = {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'baseline',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
   inner: {
     width: 260,
