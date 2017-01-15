@@ -6,6 +6,7 @@ import ShowMeTheWeather from './show-the-local-weather'
 import WikipediaViewer from './build-a-wikipedia-viewer'
 import TwitchAPIApp from './use-the-twitchtv-json-api'
 import JavaScriptCalculator from './build-a-javascript-calculator'
+import PomodoroClock from './build-a-pomodoro-clock'
 
 export default [
   {
@@ -47,5 +48,10 @@ export default [
     name: 'JavaScript Calculator',
     Component: JavaScriptCalculator,
     pattern: '/build-a-javascript-calculator',
+  },
+  {
+    name: 'Pomodoro Clock',
+    Component: PomodoroClock,
+    pattern: '/build-a-pomodoro-clock',
   },
 ]
