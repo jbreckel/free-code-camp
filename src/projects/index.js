@@ -7,6 +7,7 @@ import WikipediaViewer from './build-a-wikipedia-viewer'
 import TwitchAPIApp from './use-the-twitchtv-json-api'
 import JavaScriptCalculator from './build-a-javascript-calculator'
 import PomodoroClock from './build-a-pomodoro-clock'
+import TicTacToe from './build-a-tic-tac-toe-game'
 
 export default [
   {
@@ -53,5 +54,10 @@ export default [
     name: 'Pomodoro Clock',
     Component: PomodoroClock,
     pattern: '/build-a-pomodoro-clock',
+  },
+  {
+    name: 'Tic Tac Toe Game',
+    Component: TicTacToe,
+    pattern: '/build-a-tic-tac-toe-game',
   },
 ]
