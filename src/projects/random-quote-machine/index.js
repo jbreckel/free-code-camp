@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Grid } from 'react-bootstrap'
 
@@ -45,9 +46,9 @@ const RandomQuoteMachine = ({ quote, author, updateQuote, color }) => (
           hyphens: 'auto',
           color,
         }}
-        author={ author }
+        author={author}
       >
-        { quote }
+        {quote}
       </Blockquote>
       <div
         style={{
@@ -58,18 +59,19 @@ const RandomQuoteMachine = ({ quote, author, updateQuote, color }) => (
         }}
       >
         <a
-          href={
-            `https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text= ${
-              encodeURIComponent(`${`${quote} \u2014 ${author}`}`)
-            }`
-          }
-          target="_blank" rel="noopener noreferrer" style={{ color }}
+          href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text= ${encodeURIComponent(
+            `${`${quote} \u2014 ${author}`}`
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color }}
         >
           <i className="fa fa-twitter-square fa-2x" />
         </a>
         <button
-          className="btn" style={{ color: 'white', backgroundColor: color }}
-          onClick={ updateQuote }
+          className="btn"
+          style={{ color: 'white', backgroundColor: color }}
+          onClick={updateQuote}
         >
           new quote
         </button>
@@ -102,8 +104,8 @@ export default compose(
           Accept: 'application/json',
         },
       })
-      .then((res) => res.json())
-      .then(cb)
+        .then(res => res.json())
+        .then(cb)
     },
   })),
   withState('quote', 'setQuote', {}),
@@ -113,7 +115,7 @@ export default compose(
     color: colors[Math.floor(Math.random() * (colors.length - 1))],
     updateQuote() {
       const refreshQuote = () => {
-        getRandomQuote((newQuote) => {
+        getRandomQuote(newQuote => {
           if (newQuote.quote === quote.quote) {
             refreshQuote()
           } else {
@@ -135,5 +137,5 @@ export default compose(
     quote: disabled ? 'I feel the need - the need for speed!' : quote,
     author: disabled ? 'Top Gun' : author,
     color: disabled ? appColor : color,
-  })),
+  }))
 )(RandomQuoteMachine)

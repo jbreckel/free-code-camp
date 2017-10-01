@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import { compose, mapProps, withState } from 'recompose'
 
@@ -11,43 +12,41 @@ const WeatherDisplay = ({
   description,
   temp,
   iconCls,
-  tempFormat, tempUnits, setTempFormat,
+  tempFormat,
+  tempUnits,
+  setTempFormat,
   wind,
 }) => (
   <div>
-    <h3>{ city }, { country }</h3>
-    <i style={{ margin: 7 }} className={ `${iconCls} fa-3x` } />
+    <h3>
+      {city}, {country}
+    </h3>
+    <i style={{ margin: 7 }} className={`${iconCls} fa-3x`} />
     <div
       style={{
         margin: 5,
       }}
     >
-      { temp[tempFormat] }{' '}
+      {temp[tempFormat]}{' '}
       <DropdownButton
         id="temp-select-dropdown"
-        title={ tempUnits[tempFormat] }
-        onSelect={
-          (eventKey) => setTempFormat(eventKey)
-        }
+        title={tempUnits[tempFormat]}
+        onSelect={eventKey => setTempFormat(eventKey)}
       >
-        {
-          Object.keys(tempUnits).map((key) => (
-            <MenuItem key={ key } eventKey={ key }>{ tempUnits[key] }</MenuItem>
-          ))
-        }
+        {Object.keys(tempUnits).map(key => (
+          <MenuItem key={key} eventKey={key}>
+            {tempUnits[key]}
+          </MenuItem>
+        ))}
       </DropdownButton>
     </div>
-    <p style={{ fontSize: '120%' }}>
-      { description }
-    </p>
-    <WindDisplay
-      wind={ wind }
-    />
+    <p style={{ fontSize: '120%' }}>{description}</p>
+    <WindDisplay wind={wind} />
   </div>
 )
 
 export default compose(
-  mapProps((props) => ({
+  mapProps(props => ({
     ...props,
     tempUnits: {
       C: '°C',
@@ -69,7 +68,7 @@ export default compose(
         setTempFormat(newFormat)
       }
     },
-  })),
+  }))
 )(WeatherDisplay)
 
 WeatherDisplay.propTypes = {

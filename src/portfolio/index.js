@@ -6,8 +6,4 @@ import ProjectsSection from './ProjectsSection'
 
 export default Portfolio
 
-export {
-  AboutSection,
-  ContactSection,
-  ProjectsSection,
-}
+export { AboutSection, ContactSection, ProjectsSection }

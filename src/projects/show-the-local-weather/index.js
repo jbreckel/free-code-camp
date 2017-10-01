@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { PageHeader } from 'react-bootstrap'
 import { compose, withState, lifecycle } from 'recompose'
 
@@ -20,14 +21,12 @@ const ShowMeTheWeather = ({ weather }) => (
     <PageHeader>
       Free C<i className="wi wi-day-snow-thunderstorm" />de Camp Weather App
     </PageHeader>
-    {
-      // as long as the api has no values, weather is an empty object
-      Object.keys(weather).length === 0
-      ? 'Loading...'
-      : (
-        <WeatherDisplay {...{ weather }} />
-      )
-    }
+    {// as long as the api has no values, weather is an empty object
+    Object.keys(weather).length === 0 ? (
+      'Loading...'
+    ) : (
+      <WeatherDisplay {...{ weather }} />
+    )}
     <div style={{ margin: 15 }}>
       <a
         href="https://www.wunderground.com/"
@@ -43,10 +42,7 @@ const ShowMeTheWeather = ({ weather }) => (
           />
         </p>
       </a>
-      <Disclaimer
-        style={{ margin: 15 }}
-        project="show-the-local-weather"
-      />
+      <Disclaimer style={{ margin: 15 }} project="show-the-local-weather" />
     </div>
   </div>
 )
@@ -56,17 +52,23 @@ export default compose(
   lifecycle({
     componentDidMount() {
       fetch('https://ipinfo.io/json')
-        .then((res) => res.json())
+        .then(res => res.json())
         .then(({ loc }) => loc.split(','))
-        .then(([lat, lon]) => fetch(
-          `https://api.wunderground.com/api/d8483e016960a875/conditions/q/${lat},${lon}.json`
-        ).then((res) => res.json()).then(({ current_observation: r }) => r)
+        .then(([lat, lon]) =>
+          fetch(
+            `https://api.wunderground.com/api/d8483e016960a875/conditions/q/${lat},${lon}.json`
+          )
+            .then(res => res.json())
+            .then(({ current_observation: r }) => r)
         )
-        .then((weather) => {
+        .then(weather => {
           const {
-            wind_mph, wind_degrees,
+            wind_mph,
+            wind_degrees,
             observation_location: { city, country_iso3166: country },
-            temp_c, temp_f, weather: description,
+            temp_c,
+            temp_f,
+            weather: description,
             icon,
           } = weather
           // wunderground
@@ -88,7 +90,7 @@ export default compose(
           })
         })
     },
-  }),
+  })
 )(ShowMeTheWeather)
 
 ShowMeTheWeather.propTypes = {

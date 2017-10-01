@@ -1,6 +1,12 @@
 import React from 'react'
 
-import { compose, mapProps, withState, withHandlers, getContext } from 'recompose'
+import {
+  compose,
+  mapProps,
+  withState,
+  withHandlers,
+  getContext,
+} from 'recompose'
 
 import substyle from 'substyle'
 
@@ -10,13 +16,20 @@ import { ContainerDarkStyle, DisclaimerOnDarkStyle } from '../../style'
 import { Disclaimer } from '../../components'
 
 const PomodoroClock = ({
-  display, style, appColor,
+  display,
+  style,
+  appColor,
   toggleTimer,
-  timer, status,
-  increaseBreakLength, decreaseBreakLength,
-  increaseSessionLength, decreaseSessionLength,
-  switchStatus, isSession,
-  sessionLength, breakLength,
+  timer,
+  status,
+  increaseBreakLength,
+  decreaseBreakLength,
+  increaseSessionLength,
+  decreaseSessionLength,
+  switchStatus,
+  isSession,
+  sessionLength,
+  breakLength,
 }) => (
   <div
     style={{
@@ -25,66 +38,53 @@ const PomodoroClock = ({
       backgroundSize: 'cover',
     }}
   >
-    <div
-      {...{ ...style('inner') }}
-    >
-      <div
-        {...style('clockWrapper')}
-      >
+    <div {...{ ...style('inner') }}>
+      <div {...style('clockWrapper')}>
         <div /* Controls */
           style={{
             display: 'flex',
           }}
         >
           <div {...style('control')}>
-            <div {...style('controlText')} >
-              Break
-            </div>
+            <div {...style('controlText')}>Break</div>
             <div>
-              <button {...style('button')} onClick={ increaseBreakLength } >
+              <button {...style('button')} onClick={increaseBreakLength}>
                 +
-              </button>
-              {' '}
-              { breakLength }
-              {' '}
-              <button {...style('button')} onClick={ decreaseBreakLength } >
+              </button>{' '}
+              {breakLength}{' '}
+              <button {...style('button')} onClick={decreaseBreakLength}>
                 -
               </button>
             </div>
           </div>
           <div {...style('buttons')}>
-            <button {...style('switch')} onClick={ switchStatus }>Switch</button>
-            <button {...style('switch')} onClick={ toggleTimer }>
-              { timer ? 'Pause' : 'Start'}
+            <button {...style('switch')} onClick={switchStatus}>
+              Switch
+            </button>
+            <button {...style('switch')} onClick={toggleTimer}>
+              {timer ? 'Pause' : 'Start'}
             </button>
           </div>
           <div {...style('control')}>
-            <div {...style('controlText')} >
-              Session
-            </div>
+            <div {...style('controlText')}>Session</div>
             <div>
-              <button {...style('button')} onClick={ increaseSessionLength } >
+              <button {...style('button')} onClick={increaseSessionLength}>
                 +
-              </button>
-              {' '}
-              { sessionLength }
-              {' '}
-              <button {...style('button')} onClick={ decreaseSessionLength } >
+              </button>{' '}
+              {sessionLength}{' '}
+              <button {...style('button')} onClick={decreaseSessionLength}>
                 -
               </button>
             </div>
           </div>
         </div>
         <div {...style('clock')}>
-          { status.toUpperCase() }
+          {status.toUpperCase()}
           <br />
-          { display }
+          {display}
         </div>
       </div>
-      <Disclaimer
-        {...style('disclaimer')}
-        project="build-a-pomodoro-clock"
-      />
+      <Disclaimer {...style('disclaimer')} project="build-a-pomodoro-clock" />
     </div>
   </div>
 )
@@ -139,7 +139,7 @@ const defaultStyles = {
   },
 }
 
-const formatTime = (time) => {
+const formatTime = time => {
   const pad = (i, length = 2) => `00000${i}`.substr(-length)
   const dur = moment.duration(time)
   return `
@@ -147,7 +147,8 @@ const formatTime = (time) => {
   ${pad(dur.minutes())}:
   ${pad(dur.seconds())}:
   ${pad(dur.milliseconds(), 3)}
-  `.replace(/\n/g, '')
+  `
+    .replace(/\n/g, '')
     .replace(/ /g, '')
 }
 
@@ -163,47 +164,67 @@ export default compose(
   }),
   withState('sessionLength', 'setSessionLength', 25),
   withState('breakLength', 'setBreakLength', 5),
-  withState('value', 'setValue', ({ sessionLength, breakLength, isSession }) => ({
-    minutes: isSession() ? sessionLength : breakLength,
-  })
+  withState(
+    'value',
+    'setValue',
+    ({ sessionLength, breakLength, isSession }) => ({
+      minutes: isSession() ? sessionLength : breakLength,
+    })
   ),
   withHandlers({
-    switchStatus: ({ isSession, setStatus, breakLength, sessionLength, setValue }) => () => {
+    switchStatus: ({
+      isSession,
+      setStatus,
+      breakLength,
+      sessionLength,
+      setValue,
+    }) => () => {
       const newValue = { minutes: isSession() ? breakLength : sessionLength }
-      setStatus( isSession() ? 'Break' : 'Session', () => setValue(newValue))
+      setStatus(isSession() ? 'Break' : 'Session', () => setValue(newValue))
       return newValue
     },
   }),
   withHandlers({
-    setSessionLength: ({ setSessionLength, setValue, isSession }) => (newSessionLength) => {
-      if ( newSessionLength > 0 ) {
+    setSessionLength: ({
+      setSessionLength,
+      setValue,
+      isSession,
+    }) => newSessionLength => {
+      if (newSessionLength > 0) {
         setSessionLength(newSessionLength, () => {
-          if (isSession()) { setValue({ minutes: newSessionLength }) }
+          if (isSession()) {
+            setValue({ minutes: newSessionLength })
+          }
         })
       }
     },
-    setBreakLength: ({ setBreakLength, setValue, isSession }) => (newBreakLength) => {
-      if ( newBreakLength > 0 ) {
+    setBreakLength: ({
+      setBreakLength,
+      setValue,
+      isSession,
+    }) => newBreakLength => {
+      if (newBreakLength > 0) {
         setBreakLength(newBreakLength, () => {
-          if (!isSession()) { setValue({ minutes: newBreakLength }) }
+          if (!isSession()) {
+            setValue({ minutes: newBreakLength })
+          }
         })
       }
     },
   }),
   withHandlers({
-    increaseSessionLength: ({ sessionLength, setSessionLength }) =>
-      () => setSessionLength(sessionLength + 1),
-    decreaseSessionLength: ({ sessionLength, setSessionLength }) =>
-      () => setSessionLength(sessionLength - 1),
-    increaseBreakLength: ({ breakLength, setBreakLength }) =>
-      () => setBreakLength(breakLength + 1),
-    decreaseBreakLength: ({ breakLength, setBreakLength }) =>
-      () => setBreakLength(breakLength - 1),
+    increaseSessionLength: ({ sessionLength, setSessionLength }) => () =>
+      setSessionLength(sessionLength + 1),
+    decreaseSessionLength: ({ sessionLength, setSessionLength }) => () =>
+      setSessionLength(sessionLength - 1),
+    increaseBreakLength: ({ breakLength, setBreakLength }) => () =>
+      setBreakLength(breakLength + 1),
+    decreaseBreakLength: ({ breakLength, setBreakLength }) => () =>
+      setBreakLength(breakLength - 1),
   }),
   withHandlers({
-    toggleTimer: ({ setTimer, timer, value, setValue, switchStatus }) =>
-    () => {
-      if ( timer ) {
+    toggleTimer: ({ setTimer, timer, value, setValue, switchStatus }) => () => {
+      if (timer) {
         clearInterval(timer)
         setTimer(null)
         return
@@ -212,7 +233,7 @@ export default compose(
 
       const timerFunc = () => {
         const now = moment()
-        if ( now < endTime ) {
+        if (now < endTime) {
           const duration = moment.duration(endTime - now)
           const time = {
             hours: duration.hours(),
@@ -234,5 +255,5 @@ export default compose(
     ...props,
     value,
     display: formatTime(value),
-  })),
+  }))
 )(PomodoroClock)

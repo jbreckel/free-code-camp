@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ReactDOMServer from 'react-dom/server'
 import { compose, getContext } from 'recompose'
 
@@ -10,48 +11,46 @@ import { Section } from '../components'
 const ProjectsSection = ({ projects, appColor }) => (
   <Section id="free-code-camp-projects" title="Free Code Camp Projects">
     <Row>
-      {
-        projects.map(({ pattern, name, Component }, index) => (
-          <Col
-            key={ `${pattern}-${name}-${index}`}
-            md={ 3 }
+      {projects.map(({ pattern, name, Component }, index) => (
+        <Col
+          key={`${pattern}-${name}-${index}`}
+          md={3}
+          style={{
+            padding: 5,
+          }}
+        >
+          <div
             style={{
+              height: 200,
+              border: 'solid #ccc',
+              borderWidth: 2,
+              // margin: 5,
               padding: 5,
             }}
           >
-            <div
-              style={{
-                height: 200,
-                border: 'solid #ccc',
-                borderWidth: 2,
-                // margin: 5,
-                padding: 5,
-              }}
-            >
-              <Link to={ pattern }>
-                &ldquo;{ name }&rdquo;<br />
-                <div
-                  style={{
-                    transform: 'scale(0.24)',
-                    transformOrigin: '0 0',
-                    height: '340%',
-                    width: '420%',
-                    overflow: 'hidden',
-                    color: 'black',
-                    marginTop: 5,
-                    textAlign: 'left',
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: ReactDOMServer.renderToStaticMarkup(
-                      <Component disabled appColor={ appColor } />
-                    ),
-                  }}
-                />
-              </Link>
-            </div>
-          </Col>
-        ))
-      }
+            <Link to={pattern}>
+              &ldquo;{name}&rdquo;<br />
+              <div
+                style={{
+                  transform: 'scale(0.24)',
+                  transformOrigin: '0 0',
+                  height: '340%',
+                  width: '420%',
+                  overflow: 'hidden',
+                  color: 'black',
+                  marginTop: 5,
+                  textAlign: 'left',
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: ReactDOMServer.renderToStaticMarkup(
+                    <Component disabled appColor={appColor} />
+                  ),
+                }}
+              />
+            </Link>
+          </div>
+        </Col>
+      ))}
     </Row>
   </Section>
 )

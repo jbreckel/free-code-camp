@@ -1,28 +1,17 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import {
-  Row,
-  PageHeader,
-} from 'react-bootstrap'
+import { Row, PageHeader } from 'react-bootstrap'
 
-const Section = ({
-  id,
-  title,
-  children,
-}) => (
-  <Row
-    style={{ paddingTop: 50 }}
-    id={ id }
-  >
+const Section = ({ id, title, children }) => (
+  <Row style={{ paddingTop: 50 }} id={id}>
     <PageHeader className="text-center">
-      { title } <br />
+      {title} <br />
       <small>
         <i className="fa fa-code" />
       </small>
     </PageHeader>
-    <div className="text-center">
-      { children }
-    </div>
+    <div className="text-center">{children}</div>
   </Row>
 )
 

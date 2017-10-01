@@ -1,13 +1,15 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import { compose, mapProps } from 'recompose'
 
 const WindDisplay = ({
   wind: { deg, speed, desc },
-  windIconCls, windSpeedIconCls,
+  windIconCls,
+  windSpeedIconCls,
 }) => (
   <div>
-    Wind: { desc }
+    Wind: {desc}
     <div
       style={{
         display: 'flex',
@@ -15,12 +17,9 @@ const WindDisplay = ({
         alignItems: 'center',
       }}
     >
-      <i style={{ margin: 4 }} className={ `${windIconCls} fa-3x` } />
-      {' '}
-      ({ deg }°)
-      <i style={{ margin: 4 }} className={ `${windSpeedIconCls} fa-3x` } />
-      {' '}
-      ({ speed } bft)
+      <i style={{ margin: 4 }} className={`${windIconCls} fa-3x`} /> ({deg}°)
+      <i style={{ margin: 4 }} className={`${windSpeedIconCls} fa-3x`} /> ({speed}{' '}
+      bft)
     </div>
   </div>
 )
@@ -31,7 +30,7 @@ export default compose(
     wind,
     windIconCls: `wi wi-wind towards-${wind.deg.toFixed(0)}-deg`,
     windSpeedIconCls: `wi wi-wind wi-wind-beaufort-${wind.speed.toFixed(0)}`,
-  })),
+  }))
 )(WindDisplay)
 
 WindDisplay.propTypes = {

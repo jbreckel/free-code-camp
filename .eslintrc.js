@@ -1,13 +1,8 @@
 module.exports = {
-  extends: 'signavio',
+  extends: 'react-app',
+
   rules: {
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        'devDependencies': [
-          '**/*.test.js',
-        ]
-      },
-    ]
+    'prettier/prettier': ['error', require('./prettier.config')],
   },
+  plugins: ['prettier'],
 }

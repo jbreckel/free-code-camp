@@ -11,28 +11,29 @@ import './style.css'
 import calculate from './calculate'
 
 const Screen = ({ children, double, sbstyle }) => (
-  <button { ...sbstyle('screen') }>
-    { children }
-  </button>
+  <button {...sbstyle('screen')}>{children}</button>
 )
 const Tile = ({ children, double, sbstyle, onClick }) => (
   <button
-    onClick={ onClick }
+    onClick={onClick}
     style={{
       ...sbstyle('tile').style,
       width: double
-        ? (sbstyle('tile').style.width * 2) + 15
+        ? sbstyle('tile').style.width * 2 + 15
         : sbstyle('tile').style.width,
     }}
   >
-    { children }
+    {children}
   </button>
 )
 
 const JavaScriptCalculator = ({
-  appColor, style, result,
+  appColor,
+  style,
+  result,
   setOperator,
-  value, addToValue,
+  value,
+  addToValue,
   triggerCalculation,
   clear,
 }) => (
@@ -43,9 +44,7 @@ const JavaScriptCalculator = ({
       backgroundSize: 'cover',
     }}
   >
-    <div
-      {...{ ...style('inner') }}
-    >
+    <div {...{ ...style('inner') }}>
       {/* body */}
       <div
         style={{
@@ -54,25 +53,59 @@ const JavaScriptCalculator = ({
           padding: 10,
         }}
       >
-        <Tile sbstyle={ style } onClick={ clear }>C</Tile>
-        <Screen sbstyle={ style }>{ result }</Screen>
+        <Tile sbstyle={style} onClick={clear}>
+          C
+        </Tile>
+        <Screen sbstyle={style}>{result}</Screen>
 
-        <Tile sbstyle={ style } onClick={ () => addToValue('7') }>7</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('8') }>8</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('9') }>9</Tile>
-        <Tile sbstyle={ style } onClick={ () => setOperator('+') }>+</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('4') }>4</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('5') }>5</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('6') }>6</Tile>
-        <Tile sbstyle={ style } onClick={ () => setOperator('-') }>-</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('1') }>1</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('2') }>2</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('3') }>3</Tile>
-        <Tile sbstyle={ style } onClick={ () => setOperator('/') }>/</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('0') }>0</Tile>
-        <Tile sbstyle={ style } onClick={ () => addToValue('.') }>.</Tile>
-        <Tile sbstyle={ style } onClick={ triggerCalculation }>=</Tile>
-        <Tile sbstyle={ style } onClick={ () => setOperator('*') }>*</Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('7')}>
+          7
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('8')}>
+          8
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('9')}>
+          9
+        </Tile>
+        <Tile sbstyle={style} onClick={() => setOperator('+')}>
+          +
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('4')}>
+          4
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('5')}>
+          5
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('6')}>
+          6
+        </Tile>
+        <Tile sbstyle={style} onClick={() => setOperator('-')}>
+          -
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('1')}>
+          1
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('2')}>
+          2
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('3')}>
+          3
+        </Tile>
+        <Tile sbstyle={style} onClick={() => setOperator('/')}>
+          /
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('0')}>
+          0
+        </Tile>
+        <Tile sbstyle={style} onClick={() => addToValue('.')}>
+          .
+        </Tile>
+        <Tile sbstyle={style} onClick={triggerCalculation}>
+          =
+        </Tile>
+        <Tile sbstyle={style} onClick={() => setOperator('*')}>
+          *
+        </Tile>
       </div>
     </div>
     <Disclaimer
@@ -140,45 +173,67 @@ export default compose(
   withState('secondValue', 'setSecondValue', 0),
   withState('operator', 'setOperator', null),
   withHandlers({
-    addToValue: ({ setValue, value, result, operator, secondValue, setSecondValue, setResult }) =>
-      (digit) => {
-        if (operator === null) {
-          if ( digit === '.' && value.indexOf('.') !== -1 ) {
-            setValue(value, () => setResult(result))
-            return
-          }
-          const nVal = value === 0 ? digit : `${value}${digit}`
-          const setVal = nVal.indexOf('00') === 0 ? value : nVal
-          setValue(setVal, () => setResult(setVal))
-        } else {
-          if ( digit === '.' && secondValue.indexOf('.') !== -1 ) {
-            setSecondValue(secondValue, () => setResult(result))
-            return
-          }
-          const nVal = secondValue === 0 ? digit : `${secondValue}${digit}`
-          const setVal = nVal.indexOf('00') === 0 ? secondValue : nVal
-          const resSplit = result.split(' ')
-          const setRes = `${resSplit[0]} ${resSplit[1]} ${setVal}`
-          setSecondValue(setVal, () => setResult(setRes))
+    addToValue: ({
+      setValue,
+      value,
+      result,
+      operator,
+      secondValue,
+      setSecondValue,
+      setResult,
+    }) => digit => {
+      if (operator === null) {
+        if (digit === '.' && value.indexOf('.') !== -1) {
+          setValue(value, () => setResult(result))
+          return
         }
-      },
-    triggerCalculation:
-    ({ operator, value, secondValue, setSecondValue, setOperator, setValue, setResult }) =>
-      () => {
-        if ( !operator || !value || !secondValue ) return
-        const nVal = calculate[operator](Number(value), Number(secondValue))
-        setValue(nVal, () => setSecondValue('', () => setResult(nVal, () => setOperator(null))))
-      },
-    clear: ({ setOperator, setValue, setResult, setSecondValue }) =>
-      () => {
-        setValue('', () => setSecondValue('', () => setResult('', () => setOperator(null))))
-      },
-    setOperator: ({ operator, result, setResult, setOperator, secondValue }) => (o) => {
-      if ( result && !secondValue ) {
+        const nVal = value === 0 ? digit : `${value}${digit}`
+        const setVal = nVal.indexOf('00') === 0 ? value : nVal
+        setValue(setVal, () => setResult(setVal))
+      } else {
+        if (digit === '.' && secondValue.indexOf('.') !== -1) {
+          setSecondValue(secondValue, () => setResult(result))
+          return
+        }
+        const nVal = secondValue === 0 ? digit : `${secondValue}${digit}`
+        const setVal = nVal.indexOf('00') === 0 ? secondValue : nVal
+        const resSplit = result.split(' ')
+        const setRes = `${resSplit[0]} ${resSplit[1]} ${setVal}`
+        setSecondValue(setVal, () => setResult(setRes))
+      }
+    },
+    triggerCalculation: ({
+      operator,
+      value,
+      secondValue,
+      setSecondValue,
+      setOperator,
+      setValue,
+      setResult,
+    }) => () => {
+      if (!operator || !value || !secondValue) return
+      const nVal = calculate[operator](Number(value), Number(secondValue))
+      setValue(nVal, () =>
+        setSecondValue('', () => setResult(nVal, () => setOperator(null)))
+      )
+    },
+    clear: ({ setOperator, setValue, setResult, setSecondValue }) => () => {
+      setValue('', () =>
+        setSecondValue('', () => setResult('', () => setOperator(null)))
+      )
+    },
+    setOperator: ({
+      operator,
+      result,
+      setResult,
+      setOperator,
+      secondValue,
+    }) => o => {
+      if (result && !secondValue) {
         setOperator(o, () => {
-          if ( o !== null ) {
+          if (o !== null) {
             let newRes = `${result} ${o} `
-            if ( operator !== null ) {
+            if (operator !== null) {
               newRes = result.replace(operator, o)
             }
             setResult(newRes)
@@ -186,5 +241,5 @@ export default compose(
         })
       }
     },
-  }),
+  })
 )(JavaScriptCalculator)

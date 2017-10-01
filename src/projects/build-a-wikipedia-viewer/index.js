@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import { compose, mapProps, withState, getContext } from 'recompose'
 
@@ -11,7 +12,12 @@ import ResultTable from './ResultTable'
 
 import SearchBox from './SearchBox'
 
-const WikipediaViewer = ({ searchForArticles, articles, appColor, loading }) => (
+const WikipediaViewer = ({
+  searchForArticles,
+  articles,
+  appColor,
+  loading,
+}) => (
   <div
     style={{
       backgroundColor: appColor,
@@ -33,12 +39,12 @@ const WikipediaViewer = ({ searchForArticles, articles, appColor, loading }) => 
       }}
     >
       <RandomPage />
-      <SearchBox search={ searchForArticles } />
-      {
-        loading
-          ? <span style={{ color: 'white' }}>Loading...</span>
-          : <ResultTable articles={ articles } />
-      }
+      <SearchBox search={searchForArticles} />
+      {loading ? (
+        <span style={{ color: 'white' }}>Loading...</span>
+      ) : (
+        <ResultTable articles={articles} />
+      )}
       <Disclaimer
         project="build-a-wikipedia-viewer"
         style={{
@@ -57,12 +63,13 @@ export default compose(
   getContext({
     appColor: PropTypes.string,
   }),
-  mapProps((props) => ({
+  mapProps(props => ({
     ...props,
     fetchSearch(search) {
       return fetchJsonp(
-        `https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=10&gsrsearch=${search}`, {})
-        .then((res) => res.json())
+        `https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=10&gsrsearch=${search}`,
+        {}
+      ).then(res => res.json())
     },
   })),
   withState('loading', 'setLoading', false),
@@ -71,8 +78,9 @@ export default compose(
     ...props,
     searchForArticles(search) {
       setLoading(true)
-      fetchSearch(search)
-      .then(({ query: { pages } }) => setLoading(false, () => setArticles(Object.values(pages))))
+      fetchSearch(search).then(({ query: { pages } }) =>
+        setLoading(false, () => setArticles(Object.values(pages)))
+      )
     },
-  })),
+  }))
 )(WikipediaViewer)

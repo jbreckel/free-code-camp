@@ -15,7 +15,7 @@ const RandomPage = () => (
         margin: 10,
       }}
     >
-        Jump right into a random Wikipedia article!
+      Jump right into a random Wikipedia article!
     </div>
   </a>
 )
