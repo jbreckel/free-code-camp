@@ -16,14 +16,13 @@ const SearchBox = ({ handleChange, onKeyPress, value, search }) => (
     <FormControl
       autoComplete="off"
       type="text"
-      value={ value }
+      value={value}
       placeholder="Enter your search for wikipedia"
-      onChange={ handleChange }
-      onKeyPress={ onKeyPress }
-      style={{
-      }}
+      onChange={handleChange}
+      onKeyPress={onKeyPress}
+      style={{}}
     />
-    <button onClick={ () => search(value) } >
+    <button onClick={() => search(value)}>
       <i className="fa fa-search" />
     </button>
   </div>

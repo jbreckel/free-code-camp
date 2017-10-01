@@ -1,19 +1,13 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import {
-  Grid,
-} from 'react-bootstrap'
+import { Grid } from 'react-bootstrap'
 
 const Portfolio = ({ sections }) => (
   <Grid fluid>
-    {
-      sections.map(({ Component, ...rest }) => (
-        <Component
-          key={`${rest.href}-component`}
-          { ...rest }
-        />
-      ))
-    }
+    {sections.map(({ Component, ...rest }) => (
+      <Component key={`${rest.href}-component`} {...rest} />
+    ))}
   </Grid>
 )
 

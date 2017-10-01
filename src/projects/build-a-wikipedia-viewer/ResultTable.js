@@ -13,12 +13,10 @@ const ResultTable = ({ articles, hover, setHover }) => (
       alignItems: 'center',
     }}
   >
-    {
-      articles.map((page) => <SearchResult key={ page.pageid } {...{ page, hover, setHover }} />)
-    }
+    {articles.map(page => (
+      <SearchResult key={page.pageid} {...{ page, hover, setHover }} />
+    ))}
   </div>
 )
 
-export default compose(
-  withState('hover', 'setHover', null),
-)(ResultTable)
+export default compose(withState('hover', 'setHover', null))(ResultTable)

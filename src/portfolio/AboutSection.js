@@ -6,7 +6,8 @@ const AboutSection = () => (
   <Section id="about" title="About">
     Hey there,
     <br />
-    My name is Julius Breckel and I am currently working as a JavaScript developer.
+    My name is Julius Breckel and I am currently working as a JavaScript
+    developer.
   </Section>
 )
 

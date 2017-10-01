@@ -11,11 +11,7 @@ const SearchResult = ({
     title,
     index,
     extract,
-    thumbnail: {
-      source,
-      width,
-      height,
-    } = {},
+    thumbnail: { source, width, height } = {},
   },
 }) => (
   <a
@@ -29,8 +25,8 @@ const SearchResult = ({
     href={`https://en.wikipedia.org/?curid=${pageid}`}
     target="_blank"
     rel="noreferrer noopener"
-    onMouseEnter={ () => setHover(pageid) }
-    onMouseLeave={ () => setHover(null) }
+    onMouseEnter={() => setHover(pageid)}
+    onMouseLeave={() => setHover(null)}
   >
     <div
       style={{
@@ -48,13 +44,15 @@ const SearchResult = ({
         backgroundColor: 'white',
         width: '100%',
         borderRadius: 4,
-        ...(hover === pageid ? {
-          borderTopLeftRadius: 0,
-          borderBottomLeftRadius: 0,
-        } : {
-          borderTopLeftRadius: 4,
-          borderBottomLeftRadius: 4,
-        }),
+        ...(hover === pageid
+          ? {
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0,
+            }
+          : {
+              borderTopLeftRadius: 4,
+              borderBottomLeftRadius: 4,
+            }),
       }}
     >
       {/* Content */}
@@ -66,24 +64,20 @@ const SearchResult = ({
           marginBottom: 5,
         }}
       >
-        <h4 style={{ display: 'inline', fontWeight: 'bold' }}>
-          { title }
-        </h4>
-        {
-          source && (
-          <Image thumbnail src={ source } width={ width } height={ height } />
-        )
-      }
+        <h4 style={{ display: 'inline', fontWeight: 'bold' }}>{title}</h4>
+        {source && (
+          <Image thumbnail src={source} width={width} height={height} />
+        )}
       </div>
-      <p>{ extract }</p>
+      <p>{extract}</p>
     </div>
   </a>
 )
 
 export default SearchResult
 
-    // "pageid": 140710,
-    // "ns": 0,
-    // "title": "Electrical reactance",
-    // "index": 9,
-    // "extract
+// "pageid": 140710,
+// "ns": 0,
+// "title": "Electrical reactance",
+// "index": 9,
+// "extract

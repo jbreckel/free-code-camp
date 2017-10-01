@@ -1,15 +1,9 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import {
-  BrowserRouter as Router,
-  Match,
-  Link,
-} from 'react-router'
+import { BrowserRouter as Router, Match, Link } from 'react-router'
 
-import {
-  Grid,
-  Navbar,
-} from 'react-bootstrap'
+import { Grid, Navbar } from 'react-bootstrap'
 
 import { compose, mapProps, withContext, lifecycle } from 'recompose'
 
@@ -21,34 +15,29 @@ import Portfolio, {
 
 import projects from './projects'
 
-const {
-  Header,
-  Brand,
-} = Navbar
+const { Header, Brand } = Navbar
 
 const MyHeader = compose(
   lifecycle({
     componentWillReceiveProps() {
-      const { hash } = location
+      const { hash } = window.location
       const el = document.getElementById(hash.replace('#', ''))
-      if ( el ) {
+      if (el) {
         el.scrollIntoView({ behavior: 'smooth' })
       }
     },
-  }),
+  })
 )(({ sections }) => (
   <Header>
     <Brand>
-      {
-        sections.map(({ href, title }, index) => (
-          <span key={href} style={{ color: 'white' }} >
-            { index !== 0 && ' | ' }
-            <Link to={`/#${href}`} style={{ color: 'white' }} >
-              { title }
-            </Link>
-          </span>
-        ))
-      }
+      {sections.map(({ href, title }, index) => (
+        <span key={href} style={{ color: 'white' }}>
+          {index !== 0 && ' | '}
+          <Link to={`/#${href}`} style={{ color: 'white' }}>
+            {title}
+          </Link>
+        </span>
+      ))}
     </Brand>
   </Header>
 ))
@@ -64,28 +53,27 @@ const App = ({ sections, appColor }) => (
           backgroundImage: 'none',
         }}
       >
-        <MyHeader sections={ sections } />
+        <MyHeader sections={sections} />
       </Navbar>
       <Match
-        exactly pattern="/"
-        render={ (props) => ( <Portfolio {...props} sections={ sections } /> ) }
+        exactly
+        pattern="/"
+        render={props => <Portfolio {...props} sections={sections} />}
       />
-      {
-        projects.map((route, i) => (
-          <Match
-            key={`${route.pattern}-${i}`}
-            {...route}
-            render={(props) => (
-              <div style={{ marginTop: 60, height: '100%' }}>
-                <div style={{ marginBottom: 15, marginTop: 10 }}>
-                  <Link to="/">Home</Link>
-                </div>
-                <route.Component {...props} />
+      {projects.map((route, i) => (
+        <Match
+          key={`${route.pattern}-${i}`}
+          {...route}
+          render={props => (
+            <div style={{ marginTop: 60, height: '100%' }}>
+              <div style={{ marginBottom: 15, marginTop: 10 }}>
+                <Link to="/">Home</Link>
               </div>
-            )}
-          />
-        ))
-      }
+              <route.Component {...props} />
+            </div>
+          )}
+        />
+      ))}
     </Grid>
   </Router>
 )
@@ -96,14 +84,11 @@ App.propTypes = {
 }
 
 export default compose(
-  mapProps((props) => ({
+  mapProps(props => ({
     ...props,
     appColor: '#00695C',
   })),
-  withContext(
-    { appColor: PropTypes.string },
-    ({ appColor }) => ({ appColor })
-  ),
+  withContext({ appColor: PropTypes.string }, ({ appColor }) => ({ appColor })),
   mapProps(({ ...props }) => ({
     ...props,
     projects,
@@ -125,5 +110,5 @@ export default compose(
         projects,
       },
     ],
-  })),
+  }))
 )(App)

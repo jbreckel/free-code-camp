@@ -23,18 +23,16 @@ const Blockquote = ({ children, style: { color, ...style }, author }) => (
     >
       &#8220;
     </span>
-    { children }
-    {
-      author && (
-        <small
-          style={{
-            color,
-          }}
-        >
-          { author }
-        </small>
-      )
-    }
+    {children}
+    {author && (
+      <small
+        style={{
+          color,
+        }}
+      >
+        {author}
+      </small>
+    )}
   </blockquote>
 )
 

@@ -4,14 +4,8 @@ import { Image } from 'react-bootstrap'
 
 const UserRow = ({
   defaultLogo = Math.floor(Math.random() * 255).toString(16),
-  user: {
-    display_name: displayName,
-    name,
-    logo,
-  },
-  stream: {
-    stream,
-  },
+  user: { display_name: displayName, name, logo },
+  stream: { stream },
 }) => (
   <a
     href={name && `https://www.twitch.tv/${name}`}
@@ -33,10 +27,11 @@ const UserRow = ({
     >
       <Image
         circle
-        height={ 45 }
+        height={45}
         src={
           logo ||
-          `https://dummyimage.com/50/ff/${defaultLogo}.png?text=0x${defaultLogo}`}
+          `https://dummyimage.com/50/ff/${defaultLogo}.png?text=0x${defaultLogo}`
+        }
       />
       <div
         style={{
@@ -44,11 +39,11 @@ const UserRow = ({
           display: 'inline-block',
         }}
       >
-        <h5>{ displayName }</h5>
+        <h5>{displayName}</h5>
         <p>
-          {
-            stream ? ( stream.channel.status ) : (!name && 'This user does not exist.') || 'Offline'
-          }
+          {stream
+            ? stream.channel.status
+            : (!name && 'This user does not exist.') || 'Offline'}
         </p>
       </div>
     </div>

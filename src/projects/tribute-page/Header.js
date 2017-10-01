@@ -1,14 +1,14 @@
 import React from 'react'
 
-import {
-  PageHeader,
-} from 'react-bootstrap'
+import { PageHeader } from 'react-bootstrap'
 
 const SiteHeaderComponent = ({ title, subtitle }) => (
   <PageHeader className="text-center">
-    { title }
+    {title}
     <br />
-    <small><em>{ subtitle }</em></small>
+    <small>
+      <em>{subtitle}</em>
+    </small>
   </PageHeader>
 )
 

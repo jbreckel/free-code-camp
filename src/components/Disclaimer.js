@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Disclaimer = ({ style = {}, project }) => (
   <div
@@ -25,9 +26,7 @@ const Disclaimer = ({ style = {}, project }) => (
     <p>
       Find the source code of this project on:{' '}
       <a
-        href={
-          `https://github.com/jbreckel/free-code-camp-projects/tree/master/src/projects/${project}`
-        }
+        href={`https://github.com/jbreckel/free-code-camp-projects/tree/master/src/projects/${project}`}
         target="_blank"
         rel="noopener noreferrer"
         style={{

@@ -11,8 +11,6 @@ test('renders App without crashing', () => {
 })
 
 test('empty app renders correctly', () => {
-  const tree = renderer.create(
-    <App />
-  ).toJSON()
+  const tree = renderer.create(<App />).toJSON()
   expect(tree).toMatchSnapshot()
 })

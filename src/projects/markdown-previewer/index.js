@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Grid,
-  Row,
-  Col,
-} from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 import { compose, mapProps, withState } from 'recompose'
 
@@ -12,13 +8,11 @@ import marked from 'marked'
 import { Disclaimer } from '../../components'
 
 const Root = ({ rawText, markdown, setText, disabled }) => (
-  <Grid
-    fluid
-  >
+  <Grid fluid>
     <Row style={{ height: '100%' }}>
       <Col md={6}>
         <textarea
-          disabled={ disabled }
+          disabled={disabled}
           rows="22"
           style={{
             overflow: disabled && 'hidden',
@@ -31,12 +25,10 @@ const Root = ({ rawText, markdown, setText, disabled }) => (
         />
       </Col>
       <Col md={6}>
-        <span dangerouslySetInnerHTML={ markdown } />
+        <span dangerouslySetInnerHTML={markdown} />
       </Col>
     </Row>
-    <Disclaimer
-      project="markdown-previewer"
-    />
+    <Disclaimer project="markdown-previewer" />
   </Grid>
 )
 
@@ -80,12 +72,12 @@ Spain.
 `
 
 const MarkdownPreviewer = compose(
-  withState('rawText', 'setText', initialText ),
+  withState('rawText', 'setText', initialText),
   mapProps(({ rawText, ...rest }) => ({
     ...rest,
     rawText,
     markdown: { __html: marked(rawText) },
-  })),
+  }))
 )(Root)
 
 export default MarkdownPreviewer

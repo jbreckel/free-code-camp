@@ -13,8 +13,8 @@ const ContactSection = () => (
       href="https://www.linkedin.com/in/jbreckel"
     >
       <i className="fa fa-linkedin-square fa-2x" style={{ color: '#444' }} />
-    </a>
-    {' '}and{' '}
+    </a>{' '}
+    and{' '}
     <a
       target="_blank"
       rel="noopener noreferrer"

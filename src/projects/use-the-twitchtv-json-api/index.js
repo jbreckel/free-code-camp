@@ -47,34 +47,30 @@ const TwitchAPIApp = ({ appColor, channels, filters, setFilter, filter }) => (
           color: 'white',
         }}
       >
-        {
-          filters.map((f) => (
-            <button
-              key={ f }
-              style={{
-                border: 'none',
-                margin: 5,
-                textDecoration: filter === f ? 'underline' : 'none',
-                color: 'white',
-                backgroundColor: appColor,
-              }}
-              onClick={ () => setFilter(f) }
-            >
-              { f }
-            </button>
-          ))
-        }
+        {filters.map(f => (
+          <button
+            key={f}
+            style={{
+              border: 'none',
+              margin: 5,
+              textDecoration: filter === f ? 'underline' : 'none',
+              color: 'white',
+              backgroundColor: appColor,
+            }}
+            onClick={() => setFilter(f)}
+          >
+            {f}
+          </button>
+        ))}
       </div>
       <div
         style={{
           width: '40%',
         }}
       >
-        {
-          channels.map((channel) => (
-            <UserRow key={ channel.user.id } {...channel} />
-          ))
-        }
+        {channels.map(channel => (
+          <UserRow key={channel.user.id} {...channel} />
+        ))}
       </div>
       <Disclaimer
         project="use-the-twitchtv-json-api"
@@ -102,28 +98,34 @@ export default compose(
       setChannels([...channels, channel])
     },
     removeChannel(channel) {
-      setChannels(channels.filter((c) => c !== channel))
+      setChannels(channels.filter(c => c !== channel))
     },
   })),
   lifecycle({
     componentWillMount() {
-      defaultChannels.forEach((channel) => {
-        fetchUserWithStream(channel)
-        .then((full) => {
+      defaultChannels.forEach(channel => {
+        fetchUserWithStream(channel).then(full => {
           this.props.addChannel(full)
         })
       })
     },
   }),
   withState('filter', 'setFilter', 'all'),
-  mapProps(({ filter, setFilter, filters = ['all', 'online', 'offline'], ...rest }) => ({
-    ...rest,
-    filter,
-    filters,
-    setFilter(newFilter) {
-      setFilter(filters.includes(newFilter) ? newFilter : filter)
-    },
-  })),
+  mapProps(
+    ({
+      filter,
+      setFilter,
+      filters = ['all', 'online', 'offline'],
+      ...rest
+    }) => ({
+      ...rest,
+      filter,
+      filters,
+      setFilter(newFilter) {
+        setFilter(filters.includes(newFilter) ? newFilter : filter)
+      },
+    })
+  ),
   mapProps(({ filter, channels, ...rest }) => ({
     ...rest,
     filter,
